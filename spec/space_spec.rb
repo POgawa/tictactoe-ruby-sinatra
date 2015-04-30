@@ -31,4 +31,12 @@ describe(Space) do
     end
   end
 
+  describe('#mark_by') do
+    it('lets aplayer mark a space') do
+      test_player = Player.new({ :mark => "X"})
+      test_space = Space.new({:x => 1, :y => 2})
+      test_space.mark_by(test_player)
+      expect(test_space.marked_by()).to(eq(test_player))
+    end
+  end
 end
