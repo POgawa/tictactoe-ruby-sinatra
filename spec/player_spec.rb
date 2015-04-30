@@ -3,7 +3,6 @@ require "player"
 require "pry"
 
 
-
 describe(Player) do
   describe("#mark") do
    it("returns the player's mark") do
@@ -11,5 +10,4 @@ describe(Player) do
      expect(test_player.mark()).to(eq("X"))
    end
  end
-
 end
