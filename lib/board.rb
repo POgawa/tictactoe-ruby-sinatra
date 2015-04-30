@@ -21,7 +21,29 @@ class Board
   end
 
 
-
+  def won
+    x1 = @spaces.select {|space| space.x_coordinate == 1}
+    x2 = @spaces.select {|space| space.x_coordinate == 2}
+    x3 = @spaces.select {|space| space.x_coordinate == 3}
+    y1 = @spaces.select {|space| space.y_coordinate == 1}
+    y2 = @spaces.select {|space| space.y_coordinate == 2}
+    y3 = @spaces.select {|space| space.y_coordinate == 3}
+    s1 = @spaces.select {|space| space.x_coordinate == space.y_coordinate}
+    s_1 = @spaces.select {|space| space.x_coordinate + space.y_coordinate ==4}
+    win_options = [x1, x2, x3, y1, y2, y3, s1, s_1]
+    win_options.each() do |option|
+      marks = []
+      option.each() do |space|
+        unless space.marked_by == nil
+          space_mark = space.marked_by.mark
+          marks.push(space_mark)
+        end
+      end
+      if marks == ['X','X','X'] || marks == ['Y','Y','Y']
+        return true
+      end
+    end
+  end
 
 
 
